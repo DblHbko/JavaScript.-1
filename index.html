@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        // Почему код даёт именно такие результаты?
+        var a = 1, b = 1, c, d;
+        c = ++a; alert(c);           // 2   так как а =1 и инкрементирование префиксное происходит раньше присвоения то 2
+        d = b++; alert(d);           // 1   так как b =1 и инкрементирование постфиксное происходит после присвоения то 1
+        c = (2 + ++a); alert(c);      // 5   так как а =2 и инкрементирование префиксное происходит раньше присвоения то 3 +2
+        d = (2 + b++); alert(d);      // 4   так как b =1 и инкрементирование постфиксное происходит после присвоения то 2 +2
+        alert(a);                    // 3   ранее было 3 инкрементирования потому 3
+        alert(b);                    // 3   ранее было 3 инкрементирования потому 3
+        // 2. Чему будет равен x в примере ниже?
+        var a = 2;
+        var x = 1 + (a *= 2); // равен 5
+        console.log(x);
+        //         3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:
+        //          если a и b положительные, вывести их разность;
+        //          если а и b отрицательные, вывести их произведение;
+        //          если а и b разных знаков, вывести их сумму;
+
+        var one = parseInt(Math.random() * (100 + 100) - 100);
+        var two = parseInt(Math.random() * (100 + 100) - 100);
+        function res(s, d) {
+            if (s >= 0 && d >= 0) {
+                return s - d;
+            }
+            else if (s < 0 && d < 0) {
+                return s * d;
+            }
+            else {
+                return s + d;
+            }
+        }
+        console.log(res(one, two));
+        // 4. Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15. 
+        var three = parseInt(Math.random() * 15);
+        switch (three) {
+            case (0): console.log(0);
+            case (1): console.log(1);
+            case (2): console.log(2);
+            case (3): console.log(3);
+            case (4): console.log(4);
+            case (5): console.log(5);
+            case (6): console.log(6);
+            case (7): console.log(7);
+            case (8): console.log(8);
+            case (9): console.log(9);
+            case (10): console.log(10);
+            case (11): console.log(11);
+            case (12): console.log(12);
+            case (13): console.log(13);
+            case (14): console.log(14);
+            case (15): console.log(15);
+        }
+        //### 5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return. 
+        function sum(q, w) {
+            return q + w;
+        }
+        function raznost(q, w) {
+            return q - w;
+        }
+        function umnozenie(q, w) {
+            return q * w;
+        }
+        function delenie(q, w) {
+            return q / w;
+        }
+        // ### 6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation
+        // – строка с названием операции.В зависимости от переданного значения операции выполнить одну из арифметических операций(использовать функции из пункта 3) и вернуть полученное
+        // значение(использовать switch). 
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case ('+'):
+                    return sum(arg1, arg2);
+                case ('-'):
+                    return raznost(arg1, arg2);
+                case ('*'):
+                    return umnozenie(arg1, arg2);
+                case ('\\'):
+                    return delenie(arg1, arg2);
+
+            }
+        }
+        var r = +prompt('введите первое число');
+        var t = +prompt('введите второе число');
+        var op = prompt('выберите действие');
+        console.log('6 задание: ' + mathOperation(r, t, op));
+
+        // ### 7) *Сравнить null и 0. Попробуйте объяснить результат. 
+        // null >= 0; //true
+        // null <= 0; //true
+        // null == 0; //false
+        // null > 0;  //false
+        // null < 0;  //false
+
+        //Я думаю что при  >= <= происходит преобразование для сравнения null c числом, когда в остальных мы сравниваем 0 == false  с объектом в результате чего получаем  false 
+
+        //### 8) *С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val – заданное число, pow – степень. -->
+        var k = +prompt('chislo');
+        var l = +prompt('stepen');
+        function power(val, pow) {
+            if (pow != 1) {
+                return val * power(val, pow - 1);
+            } else if (pow < 0) {
+                alert("Введите число большее или равное 1");
+            }
+            else if (pow = 0) {
+                return 1;
+            } else {
+                return val;
+            }
+        }
+        console.log('8 задание ' + power(k, l))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
