@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var jobProgram = true;
+        var enterNumber =0;
+        var numberObject = {};
+        numberObject.numToObject = numberToObject;
+        function numberToObject(number) {
+                this.hundreds = Math.round(enterNumber / 100);
+                this.tens = Math.round(((enterNumber % 100) / 10));
+                this.ones = enterNumber % 10;
+            }
+        while (jobProgram) {
+            document.clear();
+            enterNumber = +prompt('Введите трехзначное число число:');
+            numberObject.numToObject(enterNumber);        
+            document.write('hundreds: ' + numberObject.hundreds + '/n');
+            document.write('tens: ' + numberObject.tens + '/n');
+            document.write('ones: ' + numberObject.ones + '/n');
+            //alert('В веденом числе hundreds: ' + numberObject.hundreds +', tens: ' + numberObject.tens + ', ones: ' + numberObject.ones + '.');
+            jobProgram = confirm('В веденом числе hundreds: ' + numberObject.hundreds +', tens: ' + numberObject.tens + ', ones: ' + numberObject.ones + '.\n'+'Хотите преобразовать еще одно число?');
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+13
+456
+</html>
